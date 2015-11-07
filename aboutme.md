@@ -22,3 +22,5 @@ Inteligência de mercado, analítica, Business intelligence, analise e mineraç�
 
 ### Outras paixões
 Quadrinhos, U2, livros, Hardstyle e viajar.
+
+### [Currículo](https://goo.gl/693oGH)
