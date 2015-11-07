@@ -1,16 +1,13 @@
 ---
 layout: page
-title: About me
-subtitle: Why you'd want to go on a date with me
+title: Sobre mim
+subtitle: 
 ---
 
-My name is Inigo Montoya. I have the following qualities:
+### Formação
+Graduação em andamento em Engenharia de Produção na Universidade Federal de Sergipe.
 
-- I rock a great mustache
-- I'm extremely loyal to my family
+### Vivência internacional
+Entre agosto de 2013 a agosto de 2014, morei na **Coreia do Sul**, onde estudei na KAIST (Korea Advanced Institute of Science and Technology), que é uma das 20 melhores universidades de engenharia do mundo segundo a Qs World Universities Ranking e um lugar onde conheci pessoas espetaculares. Escrevi alguns textos sobre minha experiência na Coreia em meu [blog pessoal](https://sillasgonzaga.wordpress.com/).
 
-What else do you need?
 
-### my history
-
-To be honest, I'm having some trouble remembering right now, so why don't you just watch [my movie](http://en.wikipedia.org/wiki/The_Princess_Bride_%28film%29) and it will answer **all** your questions.
