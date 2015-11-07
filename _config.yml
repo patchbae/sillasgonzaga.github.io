@@ -30,14 +30,15 @@ navbar-links:
   Home: ""
   About Me: "aboutme"
   Contact: "contact"
+  Currículo: http://g1.globo.com/
   
 # --- Footer options --- #
 
 # Change all these values or delete the ones you don't want.
 # Important: you must keep the "name" parameter, everything else you can remove
 author:
-  name: Some Person
-  email: "youremail@domain.com"
+  name: Sillas Teixeira Gonzaga
+  email: "sillas.gonzaga@gmail.com"
   facebook: yourname  # eg. daattali
   github: yourname    # eg. daattali
   twitter: yourname   # eg. daattali
