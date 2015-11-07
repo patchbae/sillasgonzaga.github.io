@@ -27,10 +27,9 @@ avatar: "/img/gitPic.png"
 
 # List of links in the navigation bar
 navbar-links:
-  Home: ""
-  About Me: "aboutme"
-  Contact: "contact"
-  Currículo: http://g1.globo.com/
+  Página inicial: ""
+  Sobre mim: "aboutme"
+
   
 # --- Footer options --- #
 
@@ -40,24 +39,24 @@ author:
   name: Sillas Teixeira Gonzaga
   email: "sillas.gonzaga@gmail.com"
   facebook: yourname  # eg. daattali
-  github: yourname    # eg. daattali
+  github: sillasgonzaga    # eg. daattali
   twitter: yourname   # eg. daattali
-  linkedin: yourlink  # eg. "pub/dean-attali/8/946/143"
-  stackoverflow: yourlink  # eg. "users/3943160/daattali"
+  linkedin: linkedin.com/in/sillasgonzaga  # eg. "pub/dean-attali/8/946/143"
+  stackoverflow: users/4577128/iatowks  # eg. "users/3943160/daattali"
  
 # Select which links to show in the footer
 footer-links-active:
   rss: false
-  facebook: true
+  facebook: false
   email: true
-  twitter: true
+  twitter: false
   github: true
-  linkedin: false
-  stackoverflow: false
+  linkedin: true
+  stackoverflow: true
 
 # How to display the link to the website in the footer
 # Remove this if you don't want a link in the footer
-url-pretty: "MyWebsite.com"  # eg. "deanattali.com/beautiful-jekyll"
+#url-pretty: "MyWebsite.com"  # eg. "deanattali.com/beautiful-jekyll"
 
 # --- Misc --- #
 
@@ -70,7 +69,7 @@ url-pretty: "MyWebsite.com"  # eg. "deanattali.com/beautiful-jekyll"
 # --- Don't need to touch anything below here (but you can if you want) --- #
 
 # Output options (more information on Jekyll's site)
-timezone: "America/Vancouver"
+timezone: "America/Maceio"
 markdown: kramdown
 highlighter: pygments
 permalink: /:year-:month-:day-:title
