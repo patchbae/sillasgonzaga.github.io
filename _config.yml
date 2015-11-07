@@ -4,7 +4,7 @@
 # baseurl is the website's URL without the hostname
 
 # If you are building a simple GitHub user page (username.github.io) then use these settings:
-url: "http://username.github.io"
+url: "http://sillasgonzaga.github.io"
 baseurl: ""
 
 # If you are building a GitHub project page then use these settings:
@@ -14,10 +14,10 @@ baseurl: ""
 # Of course don't forget to change the username and projectname to YOUR username and project
 
 # Name of website
-title: My website
+title: Paixão por Dados
 
 # Short description of your site
-description: A virtual proof that name is awesome!
+description: Análise de dados em R
 
 # --- Navigation bar options --- #
 
@@ -27,9 +27,9 @@ avatar: "/img/avatar-icon.png"
 
 # List of links in the navigation bar
 navbar-links:
-  Home: ""
-  About Me: "aboutme"
-  Contact: "contact"
+  Blog pessoal: "https://sillasgonzaga.wordpress.com/"
+  About Me: "Estudante de Engenharia de Produção"
+  Contact: "sillasgonzaga at gmail.com"
   
 # --- Footer options --- #
 
@@ -39,10 +39,10 @@ author:
   name: Some Person
   email: "youremail@domain.com"
   facebook: yourname  # eg. daattali
-  github: yourname    # eg. daattali
+  github: sillasgonzaga    # eg. daattali
   twitter: yourname   # eg. daattali
-  linkedin: yourlink  # eg. "pub/dean-attali/8/946/143"
-  stackoverflow: yourlink  # eg. "users/3943160/daattali"
+  linkedin: linkedin.com/in/sillasgonzaga  # eg. "pub/dean-attali/8/946/143"
+  stackoverflow: users/4577128/iatowks  # eg. "users/3943160/daattali"
  
 # Select which links to show in the footer
 footer-links-active:
@@ -51,8 +51,8 @@ footer-links-active:
   email: true
   twitter: true
   github: true
-  linkedin: false
-  stackoverflow: false
+  linkedin: true
+  stackoverflow: true
 
 # How to display the link to the website in the footer
 # Remove this if you don't want a link in the footer
@@ -69,7 +69,7 @@ url-pretty: "MyWebsite.com"  # eg. "deanattali.com/beautiful-jekyll"
 # --- Don't need to touch anything below here (but you can if you want) --- #
 
 # Output options (more information on Jekyll's site)
-timezone: "America/Vancouver"
+timezone: "America/Maceio"
 markdown: kramdown
 highlighter: pygments
 permalink: /:year-:month-:day-:title
