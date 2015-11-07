@@ -1,3 +1,8 @@
+---
+layout: post
+title: First post!
+---
+
 # teste1
 
 Hello world.
