@@ -3,93 +3,80 @@
 # url is the full website URL
 # baseurl is the website's URL without the hostname
 
-# If you are building a simple GitHub user page (username.github.io) then use these settings:
-url: "http://sillasgonzaga.github.io"
+url: "http://deanattali.com"
 baseurl: ""
 
-# If you are building a GitHub project page then use these settings:
-#url: "http://username.github.io/projectname"
-#baseurl: "/projectname"
+# Brief name and description of the site
+title: Dean Attali
+description: "Graduate student in Bioinformatics with a Bachelor of Computer Science. Work experience as a software engineer and web developer. Life experience as a restless traveller with too many homes."
 
-#ADICIONEI ISSO PRA VER SE CONSIGO PUBLICAR UM POST
-#FONTE: http://stackoverflow.com/questions/27933401/github-pages-page-build-failed
-#source: app
-
-#ADICIONAR ENCODING
-encoding: utf-8
-
-# Of course don't forget to change the username and projectname to YOUR username and project
-
-# Name of website
-title: Paixão por dados
-
-# Short description of your site
-description: A virtual proof that name is awesome!
+# --- Outputting options --- #
+# More information can be found on Jekyll's site
+timezone: "America/Vancouver"
+markdown: kramdown
+highlighter: pygments
+permalink: /blog/:title
+paginate: 5
+paginate_path: "/page:num/"
 
 # --- Navigation bar options --- #
 
 # Image to show in the navigation bar - image must be a square (width = height)
 # Remove this parameter if you don't want an image in the navbar
-avatar: "/img/gitPic.png"
+avatar: "/img/deanimg.jpeg"
 
 # List of links in the navigation bar
 navbar-links:
-  Página inicial: ""
-  Sobre mim: "aboutme"
+  Home: ""
+  Projects: "projects"
+  About Me / Contact: "aboutme"
+nav-search: "search"
 
-  
 # --- Footer options --- #
 
 # Change all these values or delete the ones you don't want.
 # Important: you must keep the "name" parameter, everything else you can remove
 author:
-  name: Sillas Teixeira Gonzaga
-  email: "sillas.gonzaga@gmail.com"
-  facebook: yourname  # eg. daattali
-  github: sillasgonzaga    # eg. daattali
-  twitter: yourname   # eg. daattali
-  linkedin: linkedin.com/in/sillasgonzaga  # eg. "pub/dean-attali/8/946/143"
-  stackoverflow: users/4577128/iatowks  # eg. "users/3943160/daattali"
- 
-# Select which links to show in the footer
+  name: Dean Attali
+  email: "daattali@gmail.com"
+  facebook: daattali
+  github: daattali
+  twitter: daattali
+  linkedin: "pub/dean-attali/8/946/143"
+  stackoverflow: "users/3943160/daattali" 
+  
+# Select which links to show in the footer  
 footer-links-active:
-  rss: false
-  facebook: false
+  rss: true
+  facebook: true
   email: true
-  twitter: false
+  twitter: true
   github: true
-  linkedin: true
+  linkedin: false
   stackoverflow: true
 
 # How to display the link to the website in the footer
 # Remove this if you don't want a link in the footer
-#url-pretty: "MyWebsite.com"  # eg. "deanattali.com/beautiful-jekyll"
+url-pretty: "deanattali.com" 
 
 # --- Misc --- #
 
 # Fill in your Disqus shortname (NOT the userid) if you want to support Disqus comments
-#disqus: ""
+disqus: "deanattali-site"
 
 # Fill in your Google Analytics ID to track your website using GA
-#google_analytics: ""
+google_analytics: "UA-59820529-1"  # Your Google Analytics ID
 
 # --- Don't need to touch anything below here (but you can if you want) --- #
 
-# Output options (more information on Jekyll's site)
-timezone: "America/Maceio"
-markdown: kramdown
-highlighter: pygments
-permalink: /:year-:month-:day-:title
-paginate: 5
-
-# Default YAML values (more information on Jekyll's site)
+# Default YAML values (more information on Jekyll's site)  
 defaults:
   -
     scope:
       path: ""
       type: "posts"
     values:
-      comments: true  # add comments to all blog posts
+      comments: true  # add comments to all blog posts 
   -
     scope:
       path: "" # all files
@@ -102,50 +89,4 @@ exclude:
   - LICENSE
   - README.md
 
-# prose.io config
-prose:
-  rooturl: '_posts'
-  media: 'img'
-  ignore:
-    - 404.html
-    - LICENSE
-    - feed.xml
-    - _config.yml
-    - /_layouts
-    - /_includes
-    - /css
-    - /img
-    - /js
-  metadata:
-    _posts:
-      - name: "layout"
-        field:
-          element: "hidden"
-          value: "post"
-      - name: "title"
-        field:
-          element: "text"
-          label: "Post title"
-          placeholder: "Title"
-          alterable: true
-      - name: "subtitle"
-        field:
-          element: "textarea"
-          label: "Subtitle"
-          placeholder: "A description of your post."
-          alterable: true
-      - name: "date"
-        field:
-          element: "text"
-          label: "Date"
-          help: "Enter date of post."
-          placeholder: "yyyy-mm-dd"
-          alterable: true
-      - name: "published"
-        field:
-          element: "checkbox"
-          label: "Publish"
-          help: "Check to publish post, uncheck to hide."
-  
-# Beautiful Jekyll / Dean Attali
 # 2fc73a3a967e97599c9763d05e564189
