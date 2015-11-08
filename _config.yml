@@ -11,6 +11,11 @@ baseurl: ""
 #url: "http://username.github.io/projectname"
 #baseurl: "/projectname"
 
+#ADICIONEI ISSO PRA VER SE CONSIGO PUBLICAR UM POST
+#FONTE: http://stackoverflow.com/questions/27933401/github-pages-page-build-failed
+source: app
+
+
 # Of course don't forget to change the username and projectname to YOUR username and project
 
 # Name of website
