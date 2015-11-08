@@ -13,8 +13,10 @@ baseurl: ""
 
 #ADICIONEI ISSO PRA VER SE CONSIGO PUBLICAR UM POST
 #FONTE: http://stackoverflow.com/questions/27933401/github-pages-page-build-failed
-source: app
+#source: app
 
+#ADICIONAR ENCODING
+encoding: utf-8
 
 # Of course don't forget to change the username and projectname to YOUR username and project
 
