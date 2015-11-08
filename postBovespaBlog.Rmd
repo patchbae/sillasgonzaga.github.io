@@ -1,6 +1,6 @@
 ---
 layout: post
-title: CorrelaÁ„o entre o dÛlar e aÁıes de empresas do Õndice Bovespa
+title: Correla√ß√£o entre o d√≥lar e a√ß√µes de empresas do √çndice Bovespa
 output: html_document
 ---
 
@@ -8,20 +8,21 @@ output: html_document
 knitr::opts_chunk$set(warning=FALSE, message=FALSE)
 ```
 
-## IntroduÁ„o
 
-Este projeto surgiu de uma situaÁ„o que eu estou lidando no momento: digamos que vocÍ deseja investir dinheiro para fazer uma viagem internacional durante suas fÈrias daqui a 5 anos. Como os gastos da viagem ser„o indexados pelo dÛlar, n„o basta apenas escolher um bom investimento como tÌtulos do tesouro ou outras modalidades de renda fixa. Por mais que os rendimentos deles possam apresentar enormes vantagens para seus investidores, eles precisam ser maiores que a valorizaÁ„o do dÛlar, caso contr·rio vocÍ correr· o risco de chegar no fim desse perÌodo de 5 anos sem o dinheiro necess·rio para realizar seu sonho. Se j· È muito difÌcil prever quanto custar· o dÛlar na prÛxima semana, prever seu valor em 5 anos È impossÌvel.  
+## Introdu√ß√£o
 
-Independentemente se vocÍ deseja realizar uma viagem internacional ou n„o, muitas pessoas certamente j· desejaram saber como o desempenho do dÛlar afeta o rendimento de aÁıes na bolsa. … disto que o post inaugural deste blog se trata: talvez seja uma boa decis„o investir em aÁıes de empresas que acompanhem o comportamento do dÛlar, isto È, que aumentem quando o dÛlar aumenta. Em estatÌstica, isso È chamado de correlaÁ„o:
+Este projeto surgiu de uma situa√ß√£o que eu estou lidando no momento: digamos que voc√™ deseja investir dinheiro para fazer uma viagem internacional durante suas f√©rias daqui a 5 anos. Como os gastos da viagem ser√£o indexados pelo d√≥lar, n√£o basta apenas escolher um bom investimento como t√≠tulos do tesouro ou outras modalidades de renda fixa. Por mais que os rendimentos deles possam apresentar enormes vantagens para seus investidores, eles precisam ser maiores que a valoriza√ß√£o do d√≥lar, caso contr√°rio voc√™ correr√° o risco de chegar no fim desse per√≠odo de 5 anos sem o dinheiro necess√°rio para realizar seu sonho. Se j√° √© muito dif√≠cil prever quanto custar√° o d√≥lar na pr√≥xima semana, prever seu valor em 5 anos √© imposs√≠vel.  
 
-> Diz-se que existe correlaÁ„o entre duas ou mais vari·veis quando as alteraÁıes sofridas por uma delas s„o acompanhadas por modificaÁıes nas outras. Ou seja, no caso de duas vari·veis x e y os aumentos (ou diminuiÁıes) em x correspondem a aumentos (ou diminuiÁıes) em y. Assim, a correlaÁ„o revela se existe uma relaÁ„o funcional entre uma vari·vel e as restantes.  
+Independentemente se voc√™ deseja realizar uma viagem internacional ou n√£o, muitas pessoas certamente j√° desejaram saber como o desempenho do d√≥lar afeta o rendimento de a√ß√µes na bolsa. √â disto que o post inaugural deste blog se trata: talvez seja uma boa decis√£o investir em a√ß√µes de empresas que acompanhem o comportamento do d√≥lar, isto √©, que aumentem quando o d√≥lar aumenta. Em estat√≠stica, isso √© chamado de correla√ß√£o:
 
-ProgramaÁ„o e resultados
+> Diz-se que existe correla√ß√£o entre duas ou mais vari√°veis quando as altera√ß√µes sofridas por uma delas s√£o acompanhadas por modifica√ß√µes nas outras. Ou seja, no caso de duas vari√°veis x e y os aumentos (ou diminui√ß√µes) em x correspondem a aumentos (ou diminui√ß√µes) em y. Assim, a correla√ß√£o revela se existe uma rela√ß√£o funcional entre uma vari√°vel e as restantes.  
 
-Todo o processo de an·lise foi feito no R, usando dados de cotaÁıes obtidos no Yahoo Finance. Segue abaixo o cÛdigo
+Programa√ß√£o e resultados
+
+Todo o processo de an√°lise foi feito no R, usando dados de cota√ß√µes obtidos no Yahoo Finance. Segue abaixo o c√≥digo
 
 ```{r}
-#1 Baixar sÈrie historica do dolar de 2 anos
+#1 Baixar s√©rie historica do dolar de 2 anos
 library(quantmod)
 library(plyr)
 library(dplyr)
@@ -31,7 +32,7 @@ library(reshape2)
 library(lubridate)
 ```
 
-ApÛs carregar as bibliotecas que ser„o usadas no cÛdigo, È usado o pacote quantmod para baixar e plotar uma sÈrie histÛrica do dÛlar. Por tentativa e erro, defini que o perÌodo de an·lise seria entre 25 de agosto de 2013 atÈ 01 de agosto de 2015.
+Ap√≥s carregar as bibliotecas que ser√£o usadas no c√≥digo, √© usado o pacote quantmod para baixar e plotar uma s√©rie hist√≥rica do d√≥lar. Por tentativa e erro, defini que o per√≠odo de an√°lise seria entre 25 de agosto de 2013 at√© 01 de agosto de 2015.
 
 ```{r}
 datainicial = "2013-08-25"
@@ -40,7 +41,7 @@ cotacoes = getFX("USD/BRL", from=datainicial, to=datafinal, env=NULL)
 lineChart(cotacoes)
 ```
 
-Um pouco de transformaÁ„o de dados (o famoso Data Wrangling) necess·ria para transformar a vari·vel cotacoes de classe xts em dataframes:
+Um pouco de transforma√ß√£o de dados (o famoso Data Wrangling) necess√°ria para transformar a vari√°vel cotacoes de classe xts em dataframes:
 
 ```{r}
 cotacoes = as.data.frame(cotacoes)
@@ -48,13 +49,13 @@ cotacoes$Data = rownames(cotacoes)
 rownames(cotacoes) = NULL
 ```
 
-Agora j· podemos baixar as cotaÁıes das empresas. J· que existem centenas de empresas listadas , eu escolhi apenas as que compıem o Õndice Bovespa. Para isso, eu salvei a lista das empresas em um arquivo csv e a carreguei no R.
+Agora j√° podemos baixar as cota√ß√µes das empresas. J√° que existem centenas de empresas listadas , eu escolhi apenas as que comp√µem o √çndice Bovespa. Para isso, eu salvei a lista das empresas em um arquivo csv e a carreguei no R.
 
 ```{r}
 ibovespa <- read.csv2("https://raw.githubusercontent.com/sillasgonzaga/sillasgonzaga.github.io/master/data/ibovespa.csv")
 suffix = as.data.frame(replicate(nrow(ibovespa), ".SA")) 
 
-#Um pouco de Data Wrangling para concatenar os cÛdigos das empresas com o sufixo.
+#Um pouco de Data Wrangling para concatenar os c√≥digos das empresas com o sufixo.
 
 temp = cbind(ibovespa, suffix)
 ibovespa = apply(temp, 1,
@@ -63,24 +64,24 @@ ibovespa = apply(temp, 1,
 
 ```
 
-Depois de carregar os cÛdigos das empresas e adicionar o sufixo .SA (sufixo que identifica as aÁıes da Bovespa), hora de baixar as sÈries histÛricas de cotaÁıes de cada empresa.
+Depois de carregar os c√≥digos das empresas e adicionar o sufixo .SA (sufixo que identifica as a√ß√µes da Bovespa), hora de baixar as s√©ries hist√≥ricas de cota√ß√µes de cada empresa.
 
 ```{r}
-#Baixar cotacıes
-getSymbols(ibovespa[1:36], auto.assign = TRUE, from=datainicial, to=datafinal) #O 37(IBOV.SA) d· problema
-getSymbols(ibovespa[38:40], auto.assign = TRUE, from=datainicial, to=datafinal) #O 41(IBOV.SA) d· problema
-getSymbols(ibovespa[42:56], auto.assign = TRUE, from=datainicial, to=datafinal) #O 57(IBOV.SA) d· problema
+#Baixar cotac√µes
+getSymbols(ibovespa[1:36], auto.assign = TRUE, from=datainicial, to=datafinal) #O 37(IBOV.SA) d√° problema
+getSymbols(ibovespa[38:40], auto.assign = TRUE, from=datainicial, to=datafinal) #O 41(IBOV.SA) d√° problema
+getSymbols(ibovespa[42:56], auto.assign = TRUE, from=datainicial, to=datafinal) #O 57(IBOV.SA) d√° problema
 getSymbols(ibovespa[58:length(ibovespa)], auto.assign = TRUE, from=datainicial, to=datafinal)
 ```
 
-Como exemplo, esta È o arquivo de cotaÁıes da Petrobras baixado, seguido por um gr·fico:
+Como exemplo, esta √© o arquivo de cota√ß√µes da Petrobras baixado, seguido por um gr√°fico:
 
 ```{r}
 head(PETR3.SA)
 lineChart(PETR3.SA)
 ```
 
-As vari·veis criadas pelo quantmod com as cotaÁıes baixadas do Yahoo Finance s„o da classe xts. AlÈm disso, È apenas na ˙ltima coluna (Adjusted) que estamos interessados, alÈm, claro, da coluna referente ‡s datas. Portanto, foi criada uma funÁ„o que transforma a vari·vel em dataframe e extrai apenas a coluna referente ao Adjusted:
+As vari√°veis criadas pelo quantmod com as cota√ß√µes baixadas do Yahoo Finance s√£o da classe xts. Al√©m disso, √© apenas na √∫ltima coluna (Adjusted) que estamos interessados, al√©m, claro, da coluna referente √†s datas. Portanto, foi criada uma fun√ß√£o que transforma a vari√°vel em dataframe e extrai apenas a coluna referente ao Adjusted:
 
 ```{r}
 f = function(x) {
@@ -92,7 +93,7 @@ f = function(x) {
 }
 ```
 
-Criada a funÁ„o, basta aplic·-la em cada uma das vari·veis. Infelizmente, tive de fazer isso uma por uma, manualmente, porque n„o consiga pensar em um for loop que iterasse em todos os arquivos da classe xts. Sugestıes s„o muito bem vindas.
+Criada a fun√ß√£o, basta aplic√°-la em cada uma das vari√°veis. Infelizmente, tive de fazer isso uma por uma, manualmente, porque n√£o consiga pensar em um for loop que iterasse em todos os arquivos da classe xts. Sugest√µes s√£o muito bem vindas.
 
 ```{r}
 ABEV3.SA = f(ABEV3.SA)
@@ -161,7 +162,7 @@ VALE5.SA = f(VALE5.SA)
 VIVT4.SA = f(VIVT4.SA)
 ```
 
-O ˙ltimo passo da etapa de transformaÁ„o de dados consiste em juntar todas as aÁıes das empresas, alÈm das cotaÁıes do dÛlar, em uma vari·vel sÛ, chamada de df_final. Nesta etapa, tive um problema semelhante ‡ anterior: n„o sabia muito bem como criar um for loop para n„o ter de escrever as vari·veis manualmente. Ainda bem que o iBovespa sÛ È composto por 67 empresas.
+O √∫ltimo passo da etapa de transforma√ß√£o de dados consiste em juntar todas as a√ß√µes das empresas, al√©m das cota√ß√µes do d√≥lar, em uma vari√°vel s√≥, chamada de df_final. Nesta etapa, tive um problema semelhante √† anterior: n√£o sabia muito bem como criar um for loop para n√£o ter de escrever as vari√°veis manualmente. Ainda bem que o iBovespa s√≥ √© composto por 67 empresas.
 
 ```{r}
 df_final = join_all(dfs=list(cotacoes,
@@ -176,7 +177,7 @@ df_final = join_all(dfs=list(cotacoes,
 ```
 
 
-Agora, um novo dataframe sem a coluna de data È criado. Isso È necess·rio para criar a matriz de correlaÁ„o, que sÛ aceita como argumento um dataframe 100% composto de elementos numÈricos.
+Agora, um novo dataframe sem a coluna de data √© criado. Isso √© necess√°rio para criar a matriz de correla√ß√£o, que s√≥ aceita como argumento um dataframe 100% composto de elementos num√©ricos.
 
 ```{r}
 df_final2 = na.omit(df_final)
@@ -184,30 +185,30 @@ df_final2 = select(df_final2, -Data)
 ```
 
 
-Finalmente, podemos prosseguir com a criaÁ„o da matriz de correlaÁ„o usando a funÁ„o base cor():
+Finalmente, podemos prosseguir com a cria√ß√£o da matriz de correla√ß√£o usando a fun√ß√£o base cor():
 ```{r}
 m = cor(df_final2)
 ```
 
 
-Como a matriz resultante m È muito grande (64 linhas e 64 colunas), vou mostrar apenas uma parte dela:
+Como a matriz resultante m √© muito grande (64 linhas e 64 colunas), vou mostrar apenas uma parte dela:
 
 ```{r}
 m[1:5,1:5]
 ```
 
-Os rÛtulos das linhas e colunas s„o referentes aos, digamos, indicadores (USD.BRL È a cotaÁ„o do dÛlar). Os n˙meros dentro da matriz correspondem a correlaÁ„o entre a vari·vel da linha e a da coluna. Apenas com esta pequena fraÁ„o da matriz, j· È possÌvel observar algumas correlaÁıes muito interessantes:
-- O dÛlar apresenta correlaÁıes negativas muito fortes (-0,77 e -0,75) com as aÁıes do Banco do Brasil ON (BBAS3) e Bradesco (BBDC4), respectivamente. Ou seja, na maioria das vezes quando o dÛlar sobe, as aÁıes desses dois bancos caem e vice-versa. Ser· uma tendÍncia com todos os bancos listados na bolsa?  
-- Existe uma correlaÁ„o positiva muito forte (0,90) entre as aÁıes do Bradesco e do Banco do Brasil.  
+Os r√≥tulos das linhas e colunas s√£o referentes aos, digamos, indicadores (USD.BRL √© a cota√ß√£o do d√≥lar). Os n√∫meros dentro da matriz correspondem a correla√ß√£o entre a vari√°vel da linha e a da coluna. Apenas com esta pequena fra√ß√£o da matriz, j√° √© poss√≠vel observar algumas correla√ß√µes muito interessantes:
+- O d√≥lar apresenta correla√ß√µes negativas muito fortes (-0,77 e -0,75) com as a√ß√µes do Banco do Brasil ON (BBAS3) e Bradesco (BBDC4), respectivamente. Ou seja, na maioria das vezes quando o d√≥lar sobe, as a√ß√µes desses dois bancos caem e vice-versa. Ser√° uma tend√™ncia com todos os bancos listados na bolsa?  
+- Existe uma correla√ß√£o positiva muito forte (0,90) entre as a√ß√µes do Bradesco e do Banco do Brasil.  
 
-AlÈm disso, È possÌvel saber facilmente qual a correlaÁ„o negativa mais forte dentre as cotaÁıes analisadas:
+Al√©m disso, √© poss√≠vel saber facilmente qual a correla√ß√£o negativa mais forte dentre as cota√ß√µes analisadas:
 
 ```{r}
 min(m)
 which(m == min(m), arr.ind=TRUE)
 ```
 
-A correlaÁ„o negativa mais forte (-0,88), sabe-se l· o porquÍ, È entre a Oi e a EDP Energias do Brasil. Para comprovar este fato, veja este gr·fico gerado com o ggplot2:
+A correla√ß√£o negativa mais forte (-0,88), sabe-se l√° o porqu√™, √© entre a Oi e a EDP Energias do Brasil. Para comprovar este fato, veja este gr√°fico gerado com o ggplot2:
 
 ```{r}
 temp = select(df_final, Data, OIBR4.SA.Adjusted, ENBR3.SA.Adjusted)
@@ -216,10 +217,10 @@ temp = melt(temp, "Data")
 levels(temp$variable) = c("Oi", "EDP Energias\n do Brasil")
 ggplot(temp, aes(x=ymd(Data), value)) +  geom_line() +
   facet_grid(variable~., scales="free") +
-  labs(title="Comparac„o entre aÁoes da Oi e da EDP", x="Data", y="Valor")
+  labs(title="Comparac√£o entre a√ßoes da Oi e da EDP", x="Data", y="Valor")
 ```
 
-Olhando o gr·fico, pode-se inferir que a existÍncia de outliers (comportamento anÙmalo) de subida e descida bruscas que as aÁıes da Oi tiveram no fim de 2014 pode ter influenciado no c·lculo da correlaÁ„o. A tÌtulo de curiosidade, vamos fazer a mesma an·lise com a segunda correlaÁ„o negativa mais forte:
+Olhando o gr√°fico, pode-se inferir que a exist√™ncia de outliers (comportamento an√¥malo) de subida e descida bruscas que as a√ß√µes da Oi tiveram no fim de 2014 pode ter influenciado no c√°lculo da correla√ß√£o. A t√≠tulo de curiosidade, vamos fazer a mesma an√°lise com a segunda correla√ß√£o negativa mais forte:
 
 ```{r}
 which(m == min( m[m!=min(m)] ), arr.ind=TRUE)
@@ -229,17 +230,17 @@ which(m == min( m[m!=min(m)] ), arr.ind=TRUE)
 temp = select(df_final, Data, USD.BRL, BVMF3.SA.Adjusted)
 temp = na.omit(temp)
 temp = melt(temp, "Data")
-levels(temp$variable) = c("DÛlar", "BM&F Bovespa")
+levels(temp$variable) = c("D√≥lar", "BM&F Bovespa")
 ggplot(temp, aes(x=ymd(Data), value)) +  geom_line() +
   facet_grid(variable~., scales="free") +
-  labs(title="Comparac„o entre dÛlar e aÁoes da BM&F Bovespa", x="Data", y="Valor")
+  labs(title="Comparac√£o entre d√≥lar e a√ßoes da BM&F Bovespa", x="Data", y="Valor")
 ```
 
-Agora sim fica f·cil percer a correlaÁ„o negativa entre as vari·veis: nos perÌodos quando o dÛlar sobe, as aÁıes da BMF Bovespa caem (com algumas exceÁıes) e vice-versa.  
+Agora sim fica f√°cil percer a correla√ß√£o negativa entre as vari√°veis: nos per√≠odos quando o d√≥lar sobe, as a√ß√µes da BMF Bovespa caem (com algumas exce√ß√µes) e vice-versa.  
 
-Existe um mÈtodo ainda mais f·cil de observar correlaÁıes entre um maior n˙mero de vari·veis, como o do nosso exemplo(64): o gr·fico de correlaÁ„o, tambÈm chamado de correlograma.  
+Existe um m√©todo ainda mais f√°cil de observar correla√ß√µes entre um maior n√∫mero de vari√°veis, como o do nosso exemplo(64): o gr√°fico de correla√ß√£o, tamb√©m chamado de correlograma.  
 
-Na verdade, 64 vari·veis ainda È um n˙mero alto para se plotar em um gr·fico. Por tentativa e erro, definir que o correlograma ir· exibir apenas 15 indicadores, sendo eles o dÛlar e outros 14 selecionados aleatoriamente.  
+Na verdade, 64 vari√°veis ainda √© um n√∫mero alto para se plotar em um gr√°fico. Por tentativa e erro, definir que o correlograma ir√° exibir apenas 15 indicadores, sendo eles o d√≥lar e outros 14 selecionados aleatoriamente.  
 
 ```{r}
 m2 = (df_final2[, c(1, runif(9,min=2, max=65))])
@@ -248,14 +249,14 @@ corrplot(m2, method="color", tl.cex = 1, type="full", addCoef.col = "white")
 ```
 
 
-Ali·s, È bom que se diga que eu sÛ selecionei a seed 123 (que fixa a escolha de n˙meros aleatÛrios pelo R), ou seja, se vocÍ tentar esse mesmo cÛdigo, provavelmente sua matriz n„o ter· os mesmos indicadores da mostrada aqui.
+Ali√°s, √© bom que se diga que eu s√≥ selecionei a seed 123 (que fixa a escolha de n√∫meros aleat√≥rios pelo R), ou seja, se voc√™ tentar esse mesmo c√≥digo, provavelmente sua matriz n√£o ter√° os mesmos indicadores da mostrada aqui.
 
 Dois pontos interessantes:
 
-- Existe uma correlaÁ„o positiva altÌsssima (0,96, sendo que o m·ximo È 1) entre o dÛlar e as aÁıes da Suzano Papel e Celulose(SUZB5), o que pode ser interpretado como natural dado a import‚ncia da exportaÁ„o para a empresa.
-- A maior correlaÁ„o negativa entre o dÛlar e um dos indicadores dessa fraÁ„o da matriz original - no caso, a BRMalls (BRML3) È de -0,71.
+- Existe uma correla√ß√£o positiva alt√≠sssima (0,96, sendo que o m√°ximo √© 1) entre o d√≥lar e as a√ß√µes da Suzano Papel e Celulose(SUZB5), o que pode ser interpretado como natural dado a import√¢ncia da exporta√ß√£o para a empresa.
+- A maior correla√ß√£o negativa entre o d√≥lar e um dos indicadores dessa fra√ß√£o da matriz original - no caso, a BRMalls (BRML3) √© de -0,71.
 
-Essas duas observaÁıes s„o investigadas no gr·fico abaixo.
+Essas duas observa√ß√µes s√£o investigadas no gr√°fico abaixo.
 
 ```{r}
 temp <- df_final %>%
