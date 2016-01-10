@@ -1,7 +1,7 @@
 ---
 title: "Qual o salário médio dos servidores federais?"
 author: "Sillas Teixeira Gonzaga"
-date: "Sunday, November 15, 2015"
+date: "Monday, January 10, 2016"
 output:
   md_document:
     variant: markdown_phpextra+backtick_code_blocks
