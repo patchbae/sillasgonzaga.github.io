@@ -7,27 +7,27 @@ output:
     variant: markdown_phpextra+backtick_code_blocks
 ---
 
-
+```{r global_options, include=FALSE}
+knitr::opts_chunk$set(warning=FALSE, message=FALSE, fig.width = 13)
+```
 
 Este é o segundo post da série de artigos sobre dados do Portal Transparência relativos a de servidores federais. Agora, o foco são os salários.  
 Outra pequena mudança é que, para os gráficos deste post, ao invés de usar o tema *theme_economist()*, usarei o *theme_wsj()*, também incluso no package *ggthemes*.
 
 
-
-{% highlight r %}
+```{r}
 library(ggplot2)
 library(stringr)
 library(ggthemes)
 library(dplyr)
 library(ggrepel)
-{% endhighlight %}
+```
 
 # Continuação
 
 Por alguma razão além do meu entendimento, o Portal da Transparência arquiva os dados de salários em um arquivo separado do principal. Iremos agora importá-lo e juntá-lo com o data frame principal, criado no [post anterior](http://sillasgonzaga.github.io/blog/transparencia1/).
 
-
-{% highlight r %}
+```{r}
 # Basicamente as únicas colunas que importam são a 3ª (ID do servidor) e a 6ª (remuneração bruta)
 df <- read.csv2("/home/sillas/R/data/transparencia.csv", fileEncoding = "ISO-8859-15")
 
@@ -43,29 +43,25 @@ df$x <- 1
 
 
 rm(salarios)
-{% endhighlight %}
+```
 
 Primeiramente, vamos olhar como é a distribuição dos salários dos servidores federais.
 
-
-{% highlight r %}
+```{r}
 ggplot(data=df, aes(x=SALARIO)) +
     geom_histogram(binwidth=1000) +
     scale_x_continuous(breaks=seq(0, 50000, by=5000)) +
     labs(title="Histograma dos salários\n dos servidores",
          x="Salário", y="Quantidade de servidores") +
   theme_wsj()
-{% endhighlight %}
-
-![center](/figs/transparenciaParte2/unnamed-chunk-3-1.png) 
+```
 
 Com o gráfico acima, é possível aprender que:
 * Estranhamente, existe uma quantidade anormal (fora da curva) de servidores que ganham aproximadamente entre R$22.000 a RS$24.000,00.  
 * Percebeu que existe um "breu" após a faixa dos 35000? É porque existem alguns poucos servidores que ganham acima disso, o que distorce o gráfico. Eles são nossos outliers.  
 * Os salários dos servidores não seguem uma distribuição normal (ver comparação abaixo);
 
-
-{% highlight r %}
+```{r}
 ggplot(data=df, aes(x=SALARIO)) +
     geom_histogram(binwidth=1000, aes(y=..density..)) +
     scale_x_continuous(breaks=seq(0, 50000, by=5000)) +
@@ -73,28 +69,22 @@ ggplot(data=df, aes(x=SALARIO)) +
          x="Salário", y="Proporção") +
     stat_function(fun=dnorm, color="red", arg=list(mean=mean(df$SALARIO), sd=sd(df$SALARIO)))+
     theme_wsj()
-{% endhighlight %}
-
-![center](/figs/transparenciaParte2/unnamed-chunk-4-1.png) 
+```
 
 
 Será que os salários variam de acordo com a região? Existem diferentes visualizações que podem ser usadas para fazer essa comparação.
 
 ## Histogramas 
 
-
-{% highlight r %}
+```{r Histogramas, fig.height=8}
 ggplot(data=df, aes(x=SALARIO)) +
   geom_histogram(binwidth=1000) +
   facet_grid(REGIAO~., scales = "free_y") +  #TESTE
   scale_x_continuous(breaks=seq(0, 50000, by=5000)) +
   theme_wsj() +
   labs(title = "Distribuição dos salários\n por região")
-{% endhighlight %}
 
-![center](/figs/transparenciaParte2/Histogramas-1.png) 
 
-{% highlight r %}
 ggplot(data=df, aes(x=SALARIO)) +
     geom_histogram(binwidth=1000, aes(y=..density..)) +
     facet_grid(REGIAO~., scales = "free_y") + 
@@ -102,9 +92,9 @@ ggplot(data=df, aes(x=SALARIO)) +
     stat_function(fun=dnorm, color="red", arg=list(mean=mean(df$SALARIO), sd=sd(df$SALARIO)))+
     scale_y_continuous(breaks=NULL) +
     theme_wsj()
-{% endhighlight %}
 
-![center](/figs/transparenciaParte2/Histogramas-2.png) 
+
+```
 
 Com os gráficos acima, é possível inferir que:
 * A diferença entre as distribuições dos salários se mantém constante nas diferentes faixas salariais.  
@@ -130,104 +120,31 @@ Em suma:
 
 * Assimetria é, como se pode inferir pelo seu nome, a medida da falta de assimetria de uma distribuição. Uma distribuição é simétrica se parece a mesma à esquerda ou à direita de seu ponto médio. Valores negativos de assimetria indicam que a distribuição é distorcida para a esquerda e positivos para a direita. A assimetria de uma distribuição normal é próxima a zero:
 
-
-{% highlight r %}
+```{r}
 library(moments)
 skewness(rnorm(100))
-{% endhighlight %}
-
-
-
-{% highlight text %}
-## [1] -0.1254035
-{% endhighlight %}
-
-
-
-{% highlight r %}
 skewness(rnorm(10000))
-{% endhighlight %}
-
-
-
-{% highlight text %}
-## [1] 0.02134943
-{% endhighlight %}
-
-
-
-{% highlight r %}
 skewness(rnorm(100000))
-{% endhighlight %}
-
-
-
-{% highlight text %}
-## [1] -0.003966336
-{% endhighlight %}
+```
 
 * Curtose é uma medida que verifica se a distribuição possui picos ou se é plana em relação a uma distribuição normal. As distribuições com alta curtose tendem a ter um pico distinto próximo à média. A curtose de uma distribuição normal é igual a 3:
 
-
-{% highlight r %}
+```{r}
 kurtosis(rnorm(100))
-{% endhighlight %}
-
-
-
-{% highlight text %}
-## [1] 2.383941
-{% endhighlight %}
-
-
-
-{% highlight r %}
 kurtosis(rnorm(10000))
-{% endhighlight %}
-
-
-
-{% highlight text %}
-## [1] 3.008551
-{% endhighlight %}
-
-
-
-{% highlight r %}
 kurtosis(rnorm(100000))
-{% endhighlight %}
-
-
-
-{% highlight text %}
-## [1] 3.008823
-{% endhighlight %}
+```
 
 [Fonte](http://www.itl.nist.gov/div898/handbook/eda/section3/eda35b.htm).
 
 Vamos agora computar a assimetria e curtose dos salários para cada região:
 
-
-{% highlight r %}
+```{r}
 df %>%
   group_by(REGIAO) %>%
   summarise(assimetria = skewness(SALARIO),
             curtose = kurtosis(SALARIO))
-{% endhighlight %}
-
-
-
-{% highlight text %}
-## Source: local data frame [5 x 3]
-## 
-##         REGIAO assimetria  curtose
-##         (fctr)      (dbl)    (dbl)
-## 1 Centro-Oeste   1.035474 3.571747
-## 2     Nordeste   1.462003 5.578107
-## 3        Norte   1.712028 6.447419
-## 4      Sudeste   1.214714 4.225232
-## 5          Sul   1.100610 3.936279
-{% endhighlight %}
+```
 
 **Interpretação**: De fato, a assimetria e a curtose dos salários na região Norte são muito mais altos que nas outras regiões. Uma investigação mais detalhada desses resultados provavelmente resultaria em descobertas, no mínimo, interessantes.
 Outra observação interessante é que todos as regiões possuem uma assimetria positiva, o que é um efeito direto da presença dos outliers no nosso dataset.
@@ -245,8 +162,8 @@ Outra maneira de visualizar a variação da distribuição de uma variável cont
 
 Vamos analisar a distribuição de salários dos servidores de acordo com as regiões e os estados.
 
+```{r Boxplots}
 
-{% highlight r %}
 #1: Regiões
 ggplot(data=df, aes(x=REGIAO, y=SALARIO, fill=REGIAO)) +
   geom_boxplot() +
@@ -254,11 +171,7 @@ ggplot(data=df, aes(x=REGIAO, y=SALARIO, fill=REGIAO)) +
   guides(fill=FALSE) +
   theme_wsj() +
   labs(title = "Distribuição dos salários por região")
-{% endhighlight %}
 
-![center](/figs/transparenciaParte2/Boxplots-1.png) 
-
-{% highlight r %}
 #2: Agrupar estados por região
 # Defini um vetor de cores para cada estado para facilitar a visualização
 coresEstados <- c(#Norte
@@ -283,9 +196,7 @@ ggplot(data=df, aes(x=UF_EXERCICIO, y=SALARIO, fill=UF_EXERCICIO)) + geom_boxplo
   theme_wsj() +
   labs(title = "Distribuição dos salários por estado") +
   guides(fill = FALSE)
-{% endhighlight %}
-
-![center](/figs/transparenciaParte2/Boxplots-2.png) 
+```
 
 Por meio dos dois gráficos acima, aprendemos que:  
 * A grande maioria dos outliers pertence ao Centro-Oeste, onde estão os três maiores salários de servidores do Brasil.  
@@ -293,8 +204,7 @@ Por meio dos dois gráficos acima, aprendemos que:
 * São Paulo aparenta ter o maior salário médio (calculado pela mediana), enquanto que Roraima e Amapá possuem os menores. Além disso, o salário médio paulista difere muito do observado em outros estados no Sudeste. De fato:
 
 
-
-{% highlight r %}
+```{r, fig.height=9}
 df %>%
   group_by(UF_EXERCICIO, REGIAO) %>%
   summarise(salarioMedio = round(median(SALARIO),0)) %>%
@@ -305,14 +215,12 @@ df %>%
   geom_text(aes(label = salarioMedio, hjust = -0.3)) +
   labs(title = "Maiores salários por UF") +
   theme_wsj()
-{% endhighlight %}
 
-![center](/figs/transparenciaParte2/unnamed-chunk-8-1.png) 
+```
 
 Será que existe alguma correlação entre o salário médio e o número de servidores do estado? Vamos tentar responder isso com um gráfico de dispersão comum, onde eu uso um recurso do package recém criado *ggrepel*:
 
-
-{% highlight r %}
+```{r, fig.height=9}
 temp <- df %>%
   group_by(UF_EXERCICIO) %>%
   summarise(salarioMedio = round(median(SALARIO),2),
@@ -325,9 +233,8 @@ ggplot(temp, aes(numeroDeServidores, salarioMedio)) +
   geom_hline(yintercept = median(df$SALARIO)) +
   labs(title = "Salário médio e número\n de servidores\n por estado", x = "Número de Servidores", y = "Salário Médio") +
   theme_wsj()
-{% endhighlight %}
-
-![center](/figs/transparenciaParte2/unnamed-chunk-9-1.png) 
+  
+```
 
 Não é possível detectar nenhum padrão muito significativo.
 
