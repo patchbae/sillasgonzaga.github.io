@@ -1,5 +1,5 @@
 ---
-title: "Qual estado brasileiro tem o maior número de servidores federais?"
+title: "Transparência (1): Qual estado brasileiro tem o maior número de servidores federais?"
 author: "Sillas Teixeira Gonzaga"
 date: "Sunday, November 15, 2015"
 output:
@@ -7,7 +7,9 @@ output:
     variant: markdown_phpextra+backtick_code_blocks
 ---
 
-# 1 - Introdução
+# Transparência (1): Qual estado brasileiro tem o maior número de servidores federais?
+
+## 1 - Introdução
 
 Alguns dos datasets brasileiros mais interessantes podem ser encontrados no __[Portal da Transparência](http://transparencia.gov.br/)__, no qual é possível obter dados sobre:
 
@@ -23,7 +25,7 @@ Os dados foram baixados [deste endereço](http://transparencia.gov.br/downloads/
 
 A pasta zipada baixada contém cinco arquivos, dentre os quais só usaremos dois: *20150831-Cadastro.csv*  e *20150831-Remuneracao.csv*. Ambos contem 44 variáveis e cerca de 700 mil linhas, mais a maioria delas não são muito importantes neste contexto.
 
-# 2. Importação e limpeza dos dados
+## 2. Importação e limpeza dos dados
 
 
 
@@ -96,42 +98,6 @@ system.time(df <- read.csv("C:/R/data/201508_Servidores/20150831_Cadastro.csv",
              -SIGLA_FUNCAO, -NIVEL_FUNCAO, -CODIGO_ATIVIDADE)
 )
 {% endhighlight %}
-
-
-
-{% highlight text %}
-## Warning in read.table(file = file, header = header, sep = sep, quote =
-## quote, : line 2 appears to contain embedded nulls
-{% endhighlight %}
-
-
-
-{% highlight text %}
-## Warning in read.table(file = file, header = header, sep = sep, quote =
-## quote, : line 3 appears to contain embedded nulls
-{% endhighlight %}
-
-
-
-{% highlight text %}
-## Warning in read.table(file = file, header = header, sep = sep, quote =
-## quote, : line 4 appears to contain embedded nulls
-{% endhighlight %}
-
-
-
-{% highlight text %}
-## Warning in read.table(file = file, header = header, sep = sep, quote =
-## quote, : line 5 appears to contain embedded nulls
-{% endhighlight %}
-
-
-
-{% highlight text %}
-## Warning in scan(file = file, what = what, sep = sep, quote = quote, dec =
-## dec, : embedded nul(s) found in input
-{% endhighlight %}
-
 
 
 {% highlight text %}

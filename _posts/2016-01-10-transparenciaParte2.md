@@ -1,5 +1,5 @@
 ---
-title: "Qual o salário médio dos servidores federais?"
+title: "Transparência (2): Qual o salário médio dos servidores federais?"
 author: "Sillas Teixeira Gonzaga"
 date: "Sunday, November 15, 2015"
 output:
@@ -7,11 +7,10 @@ output:
     variant: markdown_phpextra+backtick_code_blocks
 ---
 
-
+# Transparência (2): Qual o salário médio dos servidores federais?
 
 Este é o segundo post da série de artigos sobre dados do Portal Transparência relativos a de servidores federais. Agora, o foco são os salários.  
 Outra pequena mudança é que, para os gráficos deste post, ao invés de usar o tema *theme_economist()*, usarei o *theme_wsj()*, também incluso no package *ggthemes*.
-
 
 
 {% highlight r %}
@@ -21,8 +20,6 @@ library(ggthemes)
 library(dplyr)
 library(ggrepel)
 {% endhighlight %}
-
-# Continuação
 
 Por alguma razão além do meu entendimento, o Portal da Transparência arquiva os dados de salários em um arquivo separado do principal. Iremos agora importá-lo e juntá-lo com o data frame principal, criado no [post anterior](http://sillasgonzaga.github.io/blog/transparencia1/).
 
