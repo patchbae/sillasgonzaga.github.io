@@ -300,7 +300,7 @@ df %>%
   geom_segment(aes(yend = UF_EXERCICIO, xend = 0)) +
   facet_grid(REGIAO ~., drop = TRUE, scales = "free_y") +
   geom_text(aes(label = salarioMedio, hjust = -0.3)) +
-  labs(title = "Maiores salários por UF") +
+  labs(title = "Salário médio por UF") +
   theme_wsj()
 {% endhighlight %}
 
