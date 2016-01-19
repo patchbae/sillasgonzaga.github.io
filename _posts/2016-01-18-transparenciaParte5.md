@@ -2,6 +2,7 @@
 title: "Transparência (5): Trabalhando com datas"
 author: "Sillas Teixeira Gonzaga"
 date: "Monday, January 18, 2016"
+comments: true
 output:
   md_document:
     variant: markdown_phpextra+backtick_code_blocks
