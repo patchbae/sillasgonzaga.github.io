@@ -2,6 +2,7 @@
 title: "Transparência (1): Qual estado brasileiro tem o maior número de servidores federais?"
 author: "Sillas Teixeira Gonzaga"
 date: "Sunday, November 15, 2015"
+comments: true
 output:
   md_document:
     variant: markdown_phpextra+backtick_code_blocks
