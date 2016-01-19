@@ -10,7 +10,7 @@ output:
 
 
 
-# Trabalhando com Datas
+# Transparência (5): Trabalhando com datas
 
 O dataset do Portal da Transparência traz três colunas relacionadas com datas: *DATA_INGRESSO_CARGOFUNCAO*, *DATA_INGRESSO_ORGAO* e *DATA_DIPLOMA_INGRESSO_SERVICOPUBLICO*, as quais geram umas análises curiosas, principalmente se relacionadas com a variável salário.
 
@@ -106,7 +106,7 @@ ggplot(df, aes(x=anos.como.servidor)) +
 
 ![center](/figs/transparenciaParte5/unnamed-chunk-4-1.png) 
 
-Observações:
+__Observações__:  
 * A maioria dos servidores tomou posse há 3 anos.  
 * Existe um número absurdamente grande de servidores com mais de 30 anos no serviço público. Na verdade, é mais comum encontrar um servidor que tenha mais de 30 anos de serviço do que entre 15 a 25.  
 * Existem alguns outliers que têm mais de 55 anos que causaram a distorção do histograma.
@@ -129,7 +129,7 @@ ggplot(subset(df, anos.como.servidor <= 50), aes(x=anos.como.servidor)) +
 
 ![center](/figs/transparenciaParte5/unnamed-chunk-5-1.png) 
 
-* Fica muito fácil detectar a anomalia nos dados: o número de servidores que são funcionários do governo há mais de 35 anos na região Norte é assustador. São mais de 6000, muito mais do que em qualquer região. Na verdade, essa é a faixa de idade com mais pessoas dessa região.
+Fica muito fácil detectar a anomalia nos dados: o número de servidores que são funcionários do governo há mais de 35 anos na região Norte é assustador. São mais de 6000, muito mais do que em qualquer região. Na verdade, essa é a faixa de idade com mais pessoas dessa região.
 
 Separado por região, mas mostrado por boxplots: 
 
@@ -187,7 +187,7 @@ ggplot(data=df, aes(x=UF_EXERCICIO, y=anos.como.servidor, fill=UF_EXERCICIO)) +
 
 ![center](/figs/transparenciaParte5/unnamed-chunk-7-1.png) 
 
-Parem e percebam o quão absurda é a situação em Amapá, que merece dois comentários a parte:  
+__Parem e percebam o quão absurda é a situação em Amapá__, que merece dois comentários a parte:  
 * A mediana é igual a cerca de 37 anos. Na verdade, a distribuição é tão bagunçada que a mediana deixa de fazer sentido aqui nesse contexto.  
 * Os servidores com menos de 11 anos, que é a mediana geral, são considerados anomalia no estado.  
 * Em comparação, Tocantins parece ser uma situação oposta ao estado do Norte.

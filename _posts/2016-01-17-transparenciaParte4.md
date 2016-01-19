@@ -1,5 +1,5 @@
 ---
-title: "Análise de salários usando Treemaps"
+title: "Transparência(4): Análise de salários usando Treemaps"
 author: "Sillas Teixeira Gonzaga"
 date: "Sunday, January 17, 2016"
 output:
@@ -8,7 +8,7 @@ output:
 ---
 
 
-
+# Transparência(4): Análise de salários usando Treemaps
 
 
 {% highlight r %}
@@ -42,8 +42,8 @@ x <- treemap(aggSetor, index = "ORG_LOTACAO", vSize = "quantidade", vColor = "es
 
 ![center](/figs/transparenciaParte4/unnamed-chunk-2-1.png) 
 
-*Interpretação*: Com o gráfico acima, aprendemos que:  
-* O Ministério da Saúde tem muitos servidores mas salários muito baixos.
+__Interpretação__: Com o gráfico acima, aprendemos que:  
+* O Ministério da Saúde tem muitos servidores mas salários muito baixos.  
 * O Ministério da Fazenda, a Advocacia-Geral da União e o Banco Central do Brasil são os que possuem os maiores salários.
 
 O treemap é chamado assim por permitir uma visualização fácil de hierarquias, isto é, de variáveis categóricas e seus respectivos subníveis. Além disso, ele é excelente para representar visualmente relações entre duas ou mais variáveis categóricas.
@@ -83,8 +83,8 @@ df %>%
 
 ![center](/figs/transparenciaParte4/unnamed-chunk-5-1.png) 
 
-Duas grandes descobertas aqui:
-* O __DF__ tem um número assustadoramente grande de CCs (5384), tanto que chega a distorcer o gráfico.
+Duas grandes descobertas aqui:  
+* O __DF__ tem um número assustadoramente grande de CCs (5384), tanto que chega a distorcer o gráfico.  
 * Os CCs do __CE__ tem um salário médio assustadoramente alto (R$8554,70).
 
 __Por hoje é só!__
