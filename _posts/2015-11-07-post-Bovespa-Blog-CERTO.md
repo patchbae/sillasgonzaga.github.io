@@ -2,6 +2,7 @@
 layout: post
 title: Correlação entre o dólar e ações de empresas do Índice Bovespa
 output: html_document
+comments: true
 ---
 
 

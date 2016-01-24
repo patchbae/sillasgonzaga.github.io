@@ -2,6 +2,7 @@
 layout: page
 title: Sobre mim
 subtitle: Minhas paixões
+comments: true
 ---
 
 ### Formação
