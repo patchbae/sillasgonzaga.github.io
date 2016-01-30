@@ -15,7 +15,7 @@ Independentemente se você deseja realizar uma viagem internacional ou não, mui
 
 > Diz-se que existe correlação entre duas ou mais variáveis quando as alterações sofridas por uma delas são acompanhadas por modificações nas outras. Ou seja, no caso de duas variáveis x e y os aumentos (ou diminuições) em x correspondem a aumentos (ou diminuições) em y. Assim, a correlação revela se existe uma relação funcional entre uma variável e as restantes.  
 
-Programação e resultados
+## Programação e resultados
 
 Todo o processo de análise foi feito no R, usando dados de cotações obtidos no Yahoo Finance. Segue abaixo o código
 
@@ -409,3 +409,12 @@ ggplot(temp, aes(x=ymd(Data), value)) + geom_line() + facet_grid(variable~., sca
 {% endhighlight %}
 
 ![center](/figs/postBovespaBlog/unnamed-chunk-18-1.png) 
+
+
+A tendência mostrada no gráfico é clara: quando o dólar sobe, os papéis da Suzano acompanham a subida, inversamente aos da BRMalls.
+
+## Conclusão
+
+Se por um lado houve o foco apenas no dólar, este mesmo código possibilita a análise de correlações não apenas entre o dólar e ações de empresas mas também entre ações em si.
+
+Além disso, embora os gráficos – tanto os de linha quanto o correlograma – mostrados aqui confirmam as correlações obtidas na matriz de correlação, é bom ressaltar que, no período analisado, o dólar praticamente só subiu. Para uma análise mais profunda (e exata), seria necessário selecionar um período de tempo maior ou pelo menos um onde o dólar tenha tanto caído quanto subido.
