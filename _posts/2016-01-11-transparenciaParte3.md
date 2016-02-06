@@ -2,7 +2,7 @@
 title: "Transparência (3): Em quais estados os salários são mais mal distribuídos?"
 author: "Sillas Teixeira Gonzaga"
 date: "Sunday, January 11, 2016"
-comments: true
+layout: post
 output:
   md_document:
     variant: markdown_phpextra+backtick_code_blocks

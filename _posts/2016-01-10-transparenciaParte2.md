@@ -2,7 +2,7 @@
 title: "Transparência (2): Qual o salário médio dos servidores federais?"
 author: "Sillas Teixeira Gonzaga"
 date: "Monday, January 10, 2016"
-comments: true
+layout: post
 output:
   md_document:
     variant: markdown_phpextra+backtick_code_blocks

@@ -2,7 +2,7 @@
 title: "Transparência(4): Análise de salários usando Treemaps"
 author: "Sillas Teixeira Gonzaga"
 date: "Sunday, January 17, 2016"
-comments: true
+layout: post
 output:
   md_document:
     variant: markdown_phpextra+backtick_code_blocks

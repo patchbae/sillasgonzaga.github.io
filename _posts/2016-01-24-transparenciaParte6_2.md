@@ -2,6 +2,7 @@
 title: "Transparência (6): Quem são os 1% do funcionalismo público?"
 author: "Sillas Teixeira Gonzaga"
 date: "Sunday, January 24, 2016"
+layout: post
 output:
   md_document:
     variant: markdown_phpextra+backtick_code_blocks
