@@ -2,6 +2,7 @@
 title: "Transparência (7): Os famosos Cargos Comissionados"
 author: "Sillas Teixeira Gonzaga"
 date: "Wednesday, February 3, 2016"
+layout: post
 comments: true
 output:
   md_document:
