@@ -2,7 +2,11 @@
 title: "Meta-análise R (1): Quais são os pacotes mais baixados?"
 author: "Sillas Teixeira Gonzaga"
 date: "May 26, 2016"
-output: html_document
+layout: post
+comments: true
+output:
+  md_document:
+    variant: markdown_phpextra+backtick_code_blocks
 ---
 
 
