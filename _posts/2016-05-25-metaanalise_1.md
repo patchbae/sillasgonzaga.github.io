@@ -1,7 +1,7 @@
 ---
 title: "Meta-análise R (1): Quais são os pacotes mais baixados?"
 author: "Sillas Teixeira Gonzaga"
-date: "May 26, 2016"
+date: "May 25, 2016"
 layout: post
 comments: true
 output:
@@ -69,7 +69,7 @@ print(df_pkgs, 10)
 ## Source: local data frame [9,236 x 3]
 ## 
 ##          package downloads downloads_acum
-##            (chr)     (int)          (int)
+##            <chr>     <int>          <int>
 ## 1  RcppArmadillo    425443         425443
 ## 2           Rcpp    285869         711312
 ## 3        ggplot2    246536         957848
