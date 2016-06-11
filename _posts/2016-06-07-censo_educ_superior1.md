@@ -9,8 +9,10 @@ output:
     variant: markdown_phpextra+backtick_code_block
 ---
 
-
 Recentemente, discuti com um amigo meu que afirmou que Aracaju, cidade onde moramos, é uma capital universitária - ou seja, uma cidade que atrai muitos estudantes de fora -, que eu não acredito que seja verdade. Mas não há melhor maneira de responder a isso senão com análise de dados, não é mesmo?
+
+
+
 
 {% highlight r %}
 library(data.table)
@@ -101,7 +103,7 @@ system.time(df <- fread("DM_ALUNO_novo.csv"))
 
 
 {% highlight text %}
-## Timing stopped at: 0.004 0 0.002
+## Timing stopped at: 0 0 0
 {% endhighlight %}
 
 
