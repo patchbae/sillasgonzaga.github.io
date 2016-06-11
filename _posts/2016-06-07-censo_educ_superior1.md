@@ -2,6 +2,7 @@
 title: "Censo da Educação Superior (1) - Quais são as cidades mais universitárias do Brasil?"
 author: "Sillas Teixeira Gonzaga"
 date: "Friday, June 7, 2016"
+layout: post
 comments: true
 output:
   md_document:
