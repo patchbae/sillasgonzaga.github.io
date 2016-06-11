@@ -9,7 +9,7 @@ output:
 ---
 
 
-
+Recentemente, discuti com um amigo meu que afirmou que Aracaju, cidade onde moramos, é uma capital universitária - ou seja, uma cidade que atrai muitos estudantes de fora -, que eu não acredito que seja verdade. Mas não há melhor maneira de responder a isso senão com análise de dados, não é mesmo?
 
 {% highlight r %}
 library(data.table)
@@ -32,8 +32,6 @@ setwd("/home/sillas/R/Projetos/CensoEducSuperior/Dados")
 {% endhighlight %}
 
 # Introdução
-
-Recentemente, discuti com um amigo meu que afirmou que Aracaju, cidade onde moramos, é uma capital universitária - ou seja, uma cidade que atrai muitos estudantes de fora -, que eu não acredito que seja verdade. Mas não há melhor maneira de responder a isso senão com análise de dados, não é mesmo?
 
 Os dados que podem tirar essa dúvida, além de trazer a luz muitas outras informações interessantes, são os microdados do [Censo da Educação Superior](http://portal.inep.gov.br/basica-levantamentos-microdados), disponibilizados pelo Instituto Nacional de Estudos e Pesquisas Educacionais Anísio Teixeira, o [Inep](http://portal.inep.gov.br/). Segundo o [Portal Brasileiro de Dados](http://dados.gov.br/dataset/microdados-do-censo-da-educacao-superior):
 
