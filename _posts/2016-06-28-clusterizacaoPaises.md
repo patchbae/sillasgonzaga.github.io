@@ -11,7 +11,7 @@ output:
 
 
 
-Neste post, eu mostro como:
+Neste post, eu mostro como:  
 - Baixar dados de indicadores macroecômicos de todos os países usando a API do World Bank;
 - Clusterizar países de acordo com esses indicadores usando o algoritmo *k-means*;
 - O Brasil está mais próximo de Serra Leoa e Zimbábue que dos Estados Unidos e Noruega
@@ -107,7 +107,7 @@ summary(df2)
 ##  NA's   :39        NA's   :27       NA's   :29        NA's   :38
 {% endhighlight %}
 
-Duas observações importantes sobre o output acima:
+Duas observações importantes sobre o output acima:  
 - Para facilitar a interpretação dos resultados da análise, transformei a taxa de desemprego em taxa de emprego, pois assim temos três indicadores que. quanto maior seus valores, mais pujante é a Economia de seus países.
 - Alguns países não contém dados para alguns dos indicadores. Não há informação, por exemplo, sobre desemprego em 38 países.
 
@@ -122,7 +122,7 @@ names(df2)[4] <- "emprego"
 
 ## Clusterização
 
-Para usar o algoritmo *k-means* para clusterizar os países, é necessário:
+Para usar o algoritmo *k-means* para clusterizar os países, é necessário:  
 - Calcular a distância (dissimilaridade) entre os países
 - Escolher o número de clusteres
 
@@ -150,18 +150,15 @@ soma dos quadrados dos clusteres ou pelo auxílio visual de um dendograma.
 Para determinar o número de clusteres pelo primeiro método, observe o gráfico abaixo:
 
 {% highlight r %}
+# referencia: http://www.statmethods.net/advstats/cluster.html
 wss <- (nrow(df2_escala)-1)*sum(apply(df2_escala,2,var))
 for (i in 2:15) wss[i] <- sum(kmeans(df2_escala,
    centers=i)$withinss)
 plot(1:15, wss, type="b", xlab="Número of Clusters",
-  ylab="Within groups sum of squares") 
+  ylab="Soma dos quadrados dentro dos clusteres") 
 {% endhighlight %}
 
 ![center](/figs/12clusterizacaoPaises/unnamed-chunk-8-1.png)
-
-{% highlight r %}
-# referência: http://www.statmethods.net/advstats/cluster.html
-{% endhighlight %}
 
 A soma dos quadrados dos clusteres se mantem estável a partir de 8 segmentos. Contudo, é preciso pensar qual a interpretação que teríamos disso. Quer dizer, posso dizer que dividi os dados em 8 clusteres, mas... e daí? O que seria aprendido por meio desses 8 clusteres?
 
@@ -228,7 +225,7 @@ mat_brasil[, "Brazil"] %>% sort() %>% tail(5)
 ##      Qatar     Malawi Mauritania Luxembourg      Sudan 
 ##   4.282810   4.399952   4.756417   5.083102   6.676918
 {% endhighlight %}
-O resultado dos 5 países mais distantes do Brasil é curioso: dentre eles, há 2 países ricos (Qatar e Luxemburgo) e três pobres (Malawi, Mauritânia e Sudão). Ou seja, não é necessariamente verdade que o Brasil é mais similar a países pobres da África que países ricos. ~~Esse é o tipo de coisa que se eu fosse jornalista sensacionalista omitiria~~.
+O resultado dos 5 países mais distantes do Brasil é curioso: dentre eles, há 2 países ricos (Qatar e Luxemburgo) e três pobres (Malawi, Mauritânia e Sudão). Ou seja, não é necessariamente verdade que o Brasil é mais similar a países pobres da África que países ricos. ~~Esse é o tipo de coisa que, se eu fosse um jornalista sensacionalista, omitiria~~.
 
 Brincadeiras a parte, já podemos pular para a parte de criar os segmentos:
 
