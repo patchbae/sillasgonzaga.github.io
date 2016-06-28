@@ -280,17 +280,17 @@ formattable(
     pib_per_capita = formatter("span", style = x ~ colorir.valor(x)),
     crescimento_pib = formatter("span", style = x ~ colorir.valor(x)),
     emprego = formatter("span", style = x ~ colorir.valor(x))
-  )#,  col.names = nome_colunas, format = "pandoc", pad = 0
+  ),  col.names = nome_colunas, format = "markdown", pad = 0
   )
 {% endhighlight %}
 
 
-| Group.1| qtd| inflacao|                             pib_per_capita|                        crescimento_pib|                                 emprego|
-|-------:|---:|--------:|------------------------------------------:|--------------------------------------:|---------------------------------------:|
-|       1|  53|     6.24|    <span style="color: red">3131.17</span>| <span style="color: green">5.89</span>| <span style="color: green">94.47</span>|
-|       2|  27|     1.47| <span style="color: green">57642.74</span>|   <span style="color: red">1.59</span>| <span style="color: green">94.18</span>|
-|       3|  53|     3.16|    <span style="color: red">9476.58</span>|   <span style="color: red">2.28</span>| <span style="color: green">92.44</span>|
-|       4|  20|     2.20|   <span style="color: red">10320.51</span>|   <span style="color: red">2.25</span>|   <span style="color: red">79.23</span>|
+|Cluster|Quantidade de países do cluster|Taxa de Inflação (%)|                      PIB Per Capita (US$)|          Crescimento anual do PIB (%)|                    Taxa de Emprego (%)|
+|------:|------------------------------:|-------------------:|-----------------------------------------:|-------------------------------------:|--------------------------------------:|
+|      1|                             53|                6.24|   <span style="color: red">3131.17</span>|<span style="color: green">5.89</span>|<span style="color: green">94.47</span>|
+|      2|                             27|                1.47|<span style="color: green">57642.74</span>|  <span style="color: red">1.59</span>|<span style="color: green">94.18</span>|
+|      3|                             53|                3.16|   <span style="color: red">9476.58</span>|  <span style="color: red">2.28</span>|<span style="color: green">92.44</span>|
+|      4|                             20|                2.20|  <span style="color: red">10320.51</span>|  <span style="color: red">2.25</span>|  <span style="color: red">79.23</span>|
 
 Temos, então, 4 grupos de países distintos:
 - Cluster 1: Inflação acima da média, PIB per capita abaixo, crescimento acima, emprego acima: países em desenvolvimento;  
