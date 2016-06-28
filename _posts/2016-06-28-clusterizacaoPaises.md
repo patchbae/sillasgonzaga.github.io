@@ -12,8 +12,8 @@ output:
 
 
 Neste post, eu mostro como:  
-- Baixar dados de indicadores macroecômicos de todos os países usando a API do World Bank;
-- Clusterizar países de acordo com esses indicadores usando o algoritmo *k-means*;
+- Baixar dados de indicadores macroecômicos de todos os países usando a API do World Bank;  
+- Clusterizar países de acordo com esses indicadores usando o algoritmo *k-means*;  
 - O Brasil está mais próximo de Serra Leoa e Zimbábue que dos Estados Unidos e Noruega
 
 
@@ -108,7 +108,7 @@ summary(df2)
 {% endhighlight %}
 
 Duas observações importantes sobre o output acima:  
-- Para facilitar a interpretação dos resultados da análise, transformei a taxa de desemprego em taxa de emprego, pois assim temos três indicadores que. quanto maior seus valores, mais pujante é a Economia de seus países.
+- Para facilitar a interpretação dos resultados da análise, transformei a taxa de desemprego em taxa de emprego, pois assim temos três indicadores que. quanto maior seus valores, mais pujante é a Economia de seus países;  
 - Alguns países não contém dados para alguns dos indicadores. Não há informação, por exemplo, sobre desemprego em 38 países.
 
 Para resolver o problema dos valores ausentes (os `NA`), poderia ser aplicada uma técnica robusta, mas como esta é uma análise simples ou optei por remover os países que tinham algum dado faltando.
@@ -123,8 +123,8 @@ names(df2)[4] <- "emprego"
 ## Clusterização
 
 Para usar o algoritmo *k-means* para clusterizar os países, é necessário:  
-- Calcular a distância (dissimilaridade) entre os países
-- Escolher o número de clusteres
+- Calcular a distância (dissimilaridade) entre os países;  
+- Escolher o número de clusteres.
 
 Para o cálculo da distância, temos um problema: as escalas das colunas são diferentes. Enquanto o PIB per capita é dado em dólares por pessoa  e vão de 255 a 116,613, os outros são dados em porcentagem. Se não for feita nenhuma transformação dos dados, o PIB per capita terá um peso muito maior na clusterização dos dados que os outros indicadores.
 
@@ -289,7 +289,7 @@ formattable(
 |      3|                             53|                3.16|   <span style="color: red">9476.58</span>|  <span style="color: red">2.28</span>|<span style="color: green">92.44</span>|
 |      4|                             20|                2.20|  <span style="color: red">10320.51</span>|  <span style="color: red">2.25</span>|  <span style="color: red">79.23</span>|
 
-Temos, então, 4 grupos de países distintos:
+Temos, então, 4 grupos de países distintos:  
 - Cluster 1: Inflação acima da média, PIB per capita abaixo, crescimento acima, emprego acima: países em desenvolvimento;  
 - Cluster 2: Inflação abaixo da média, PIB per capita **muito** acima, crescimento abaixo, emprego acima: países ricos;  
 - Cluster 3: Inflação abaixo da média, PIB per capita abaixo, crescimento abaixo, semprego acima: países relativamente pobres, piores que os do Cluster 1;  
@@ -377,7 +377,7 @@ x[order(-x$pib_per_capita),] %>% knitr::kable()
 |Liberia             |  9.8263580|       457.8586|       0.7011416|    96.2|       3|
 |Gambia, The         |  5.9473749|       441.2934|       0.8774606|    93.0|       3|
 
-Dá para perceber que existe um problema com nosso resultado: No mesmo segmento, estão presentes a Coreia do Sul e países como Haiti e Zimbábue. Isso pode ser explicado por uma série de razões, como:
+Dá para perceber que existe um problema com nosso resultado: No mesmo segmento, estão presentes a Coreia do Sul e países como Haiti e Zimbábue. Isso pode ser explicado por uma série de razões, como:  
 - O número e perfil dos indicadores macroeconômicos escolhidos não é bom o suficiente para determinar uma segmentação eficiente dos países;  
 - O número de clusteres deveria ser maior;  
 - Deveriam ser feitas apenas interações (escolhendo valores diferentes como argumento de `set.seed()`)
