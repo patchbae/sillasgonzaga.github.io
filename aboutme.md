@@ -5,6 +5,9 @@ subtitle: Minhas paixões
 comments: true
 ---
 
+### Meu outro blog
+[Cuzcuz com Kimchi](https://sillasgonzaga.wordpress.com/)
+
 ### Formação
 Graduação em andamento em Engenharia de Produção na Universidade Federal de Sergipe.
 
